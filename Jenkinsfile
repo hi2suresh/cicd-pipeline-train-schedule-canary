@@ -59,12 +59,13 @@ pipeline {
             when {
                 branch 'master'
             }
-            steps {
-                input 'Deploy to Production?'
-                milestone(1)
-                environment {
+            
+              environment {
                  CANARY_REPLICAS=0
                  } 
+            steps {
+                input 'Deploy to Production?'
+                milestone(1)             
                 
                 kubernetesDeploy(
                     kubeconfigId: 'kubeconfig',
