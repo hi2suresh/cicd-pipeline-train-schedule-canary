@@ -44,7 +44,7 @@ pipeline {
                 branch 'master'
             }
             environment {
-               CANARY_REPLICA=1 
+               CANARY_REPLICAS=1 
             }
             steps {               
                 kubernetesDeploy(
@@ -63,7 +63,7 @@ pipeline {
                 input 'Deploy to Production?'
                 milestone(1)
                 environment {
-               CANARY_REPLICA=0
+               CANARY_REPLICAS=0
                }
             steps {               
                 kubernetesDeploy(
